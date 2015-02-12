@@ -6,19 +6,20 @@
 	"when": "Thu, 12 Feb 2015 16:52:05 GMT",
 	"img": "http://scripting.com/2015/02/12/beatles.png",
 	"subs": [
-		"I'm working a new writing tool and wanted an easy way to create a nice-looking standalone page for each essay. That's how I arrived at myword.io.",
-		"The page you're reading  now is being rendered by myword. It's a very simple JavaScript app embedded in a web page. It's so simple, there's almost nothing to it. I've shared the source code on GitHub, and licensed it as open source, so you can see for yourself.",
+		"My name is Dave Winer. I wanted an easy way to create a nice-looking standalone page for essays. That's how I arrived at myword.io.",
+		"It's a very simple JavaScript app embedded in a web page. It's so simple, there's almost nothing to it. I've shared the source code on GitHub, and licensed it as <a href=\"https://github.com/scripting/myWord/blob/master/index.html\">open source</a>, so you can see for yourself.",
 		{
 			"title": "The app & website",
 			"subs": [
 				"The app reads a very simple JSON format. Here's an example <a href=\"https://dl.dropboxusercontent.com/u/36518280/misc/myWordDemo.json\">file</a>. Of course the text you're reading right now comes from a <a href=\"http://myword.io/essay.json\">JSON file</a>. It would be really easy to create a simple text editor that produces these files, hiding the complex technical details from users.",
-				"There's a standalone public web page version at <a href=\"http://myword.io/\">myword.io</a>. It takes an optional <i>url</i> parameter, which specifies the address of the JSON file to use. If none is specified, we read the file <i>essay.json</i> in the same directory as the HTML page. Here's an <a href=\"http://myword.io/?url=https://dl.dropboxusercontent.com/u/36518280/misc/myWordDemo.json\">example</a> of myword.io being used to display the contents of the example file."
+				"There's a standalone public web page version at <a href=\"http://myword.io/\">myword.io</a>. It takes an optional <i>url</i> parameter, which specifies the address of the JSON file to use. If none is specified, we read the file <i>essay.json</i> in the same directory as the HTML page. ",
+				"Here's an <a href=\"http://myword.io/?url=https://dl.dropboxusercontent.com/u/36518280/misc/myWordDemo.json\">example</a> of myword.io being used to display the contents of the example <a href=\"https://dl.dropboxusercontent.com/u/36518280/misc/myWordDemo.json\">file</a> stored in my public Dropbox folder."
 				]
 			},
 		{
 			"title": "Where to go from here",
 			"subs": [
-				"If you have suggestions, feel free to post them as a reply to <a href=\"xxx\">this blog post</a>.",
+				"If you have suggestions, feel free to post them as a reply to <a href=\"http://tbd.com/\">this blog post</a>.",
 				"That's about it for now. I hope you enjoy myWord. Feel free to use it, or the standalone public web page version."
 				]
 			}
