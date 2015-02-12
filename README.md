@@ -4,9 +4,7 @@
 
 
 
-I have a new writing tool I'm working on and wanted it to be able to create beautiful essay pages like Medium.
-
-But Medium doesn't have an API. So I made an essay-viewer that does. ;-)
+I have a new writing tool I'm working on and wanted it to be able to create beautiful essay pages like Medium. But Medium doesn't have an API. So I made an essay-viewer that does. ;-)
 
 <a href="http://myword.io/">http://myword.io/</a>
 
