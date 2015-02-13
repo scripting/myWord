@@ -14,6 +14,18 @@ I'm going to keep iterating. :-)
 
 #### Updates
 
+##### v0.44 2/13/15 by DW
+
+Thanks to an excellent <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html#comment-1851937171">suggestion</a> by Paulo Querido, myword.io now supports Markdown. Here's how it works. 
+
+1. Markdown is off by default, you can turn it off by including "flMarkdown": "true" in your JSON file. 
+
+2. Markdown only applies to the subs. The title, description, byline, etc are not processed through Markdown.
+
+3. When we generate the Markdown text from the JSON, we add two linefeeds at the end of every line. So every line is effectively a paragraph. Unless it has markup that makes Markdown think it's something else.
+
+4. The CSS for Markdown needs work. I added one fix for &lt;h4> but a lot more is probably needed to make it look great. That's why this is open source. Please, if you're good with Markdown, Bootstrap Toolkit (which is part of the environment) and CSS, take a look and see if you can improve. 
+
 ##### v0.43 2/13/15 by DW
 
 A bunch of small changes, loose-end fixes.
