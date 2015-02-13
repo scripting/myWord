@@ -12,3 +12,15 @@ Now, I'm not a great CSS hacker. That's obvious. But all that's needed is a fram
 
 I'm going to keep iterating. :-)
 
+#### Updates
+
+##### v0.43 2/13/15 by DW
+
+A bunch of small changes, loose-end fixes.
+
+1. If there's an error in the JSON, we put up a dialog saying so, along with a suggestion that you use the excellent <a href="http://jsonlint.com/">JSONLINT</a> site to find the error.
+
+2. If it's been more than a day since an article was posted, instead of saying By Mary Jones at Wednesday, we say "on Wednesday".
+
+3. Before using any of the values in the JSON, be sure it exists. 
+
