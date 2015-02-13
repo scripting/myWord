@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>MYWORD.IO: open source essay-reader</title>
+		<title>myword.io: open source essay reader</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
@@ -9,8 +9,8 @@
 		<script src="http://fargo.io/code/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="http://fargo.io/code/fontAwesome/css/font-awesome.min.css"/>
 		<link href="http://fargo.io/code/ubuntuFont.css" rel="stylesheet" type="text/css">
-		<link href="http://fargo.io/code/ranchoFont.css" rel="stylesheet" type="text/css">
 		<script src="http://fargo.io/code/node/shared/utils.js"></script>
+		<script src="http://fargo.io/code/node/shared/alertdialog.js"></script>
 		
 		<!-- Facebook metadata -->
 			<meta property="og:url" content="http://myword.io/" />
@@ -29,9 +29,9 @@
 		<script>
 			var appConsts = {
 				productname: "myWord",
-				productnameForDisplay: "myWord",
+				productnameForDisplay: "myword.io",
 				domain: "myword.io", 
-				version: "0.42"
+				version: "0.43"
 				}
 			function everySecond () {
 				}
@@ -45,23 +45,55 @@
 				ga('send', 'pageview');
 				}
 			function startup () {
-				var urlparam = getURLParameter ("url"), urlEssay = "essay.json";
+				var urlparam = getURLParameter ("url"), urlEssay = "essay.json", jstruct, now = new Date ();
 				console.log ("startup");
 				initGoogleAnalytics (); 
 				if (urlparam != "null") {
 					urlEssay = urlparam;
 					}
 				readHttpFile (urlEssay, function (s) {
-					var jstruct = JSON.parse (s);
-					$("#idBackgroundImage").css ("background-image", "url(" + jstruct.img + ")");
-					$("#idPageTitle").html (jstruct.title);
+					try {
+						jstruct = JSON.parse (s);
+						}
+					catch (err) {
+						alertDialog (err + ". Try using <a href=\"http://jsonlint.com/\" target=\"_blank\">jsonlint</a> to find the error in the JSON file.");
+						return;
+						}
 					
-					//byline
-						var author = jstruct.authorname;
-						if (jstruct.authorwebsite != undefined) {
-							author = "<a href=\"" + jstruct.authorwebsite + "\">" + author + "</a>";
+					if (jstruct.img != undefined) {
+						$("#idBackgroundImage").css ("background-image", "url(" + jstruct.img + ")");
+						}
+					if (jstruct.title != undefined) {
+						$("#idPageTitle").html (jstruct.title);
+						document.title = appConsts.productnameForDisplay + ": " + jstruct.title;
+						}
+					//fonts
+						if (jstruct.titlefont != undefined) {
+							$("#idPageTopText").css ("font-family", jstruct.titlefont);
 							}
-						$("#idPageByline").html ("By " + author + " at " + viewDate (jstruct.when) + ".");
+						if (jstruct.bodyfont != undefined) {
+							$("#idEssayText").css ("font-family", jstruct.bodyfont);
+							}
+						
+					//byline
+						if (jstruct.authorname != undefined) {
+							var author = jstruct.authorname, byline;
+							if (jstruct.authorwebsite != undefined) {
+								author = "<a href=\"" + jstruct.authorwebsite + "\">" + author + "</a>";
+								}
+							byline = "By " + author;
+							if (jstruct.when != undefined) {
+								var whenstring;
+								if (sameDay (new Date (jstruct.when), now)) {
+									whenstring = " at ";
+									}
+								else {
+									whenstring = " on ";
+									}
+								byline += whenstring + viewDate (jstruct.when);
+								}
+							$("#idPageByline").html (byline + ".");
+							}
 					//description
 						if (jstruct.description != undefined) {
 							$("#idPageDescription").html (jstruct.description);
@@ -82,8 +114,6 @@
 							}
 						dolist (jstruct.subs);
 						$("#idEssayText").html (essaytext);
-					
-					
 					});
 				self.setInterval (function () {everySecond ()}, 1000); 
 				}
@@ -168,7 +198,7 @@
 		<div class="divTextContainer" id="idTextContainer">
 			<div class="divBackgroundImage" id="idBackgroundImage">
 				<div class="divOverlay" id="idOverlay"></div>
-				<div class="divPageTopText">
+				<div class="divPageTopText" id="idPageTopText">
 					<div class="divPageByline" id="idPageByline">
 						</div>
 					<div class="divPageTitle" id="idPageTitle">

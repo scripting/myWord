@@ -10,7 +10,5 @@ I have a new writing tool I'm working on and wanted it to be able to create beau
 
 Now, I'm not a great CSS hacker. That's obvious. But all that's needed is a framework to get started. That's the idea.
 
-I'm going to keep iterating over it.
-
-Thought you might get a kick...
+I'm going to keep iterating. :-)
 
