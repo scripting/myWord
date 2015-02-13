@@ -18,6 +18,8 @@ I'm going to keep iterating. :-)
 
 Thanks to an excellent <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html#comment-1851937171">suggestion</a> by Paulo Querido, myword.io now supports Markdown. Here's how it works. 
 
+0. Here's a myword.io <a href="http://myword.io/?url=http://myword.io/examples/markdown.json">demo page</a>, and the <a href="http://myword.io/examples/markdown.json">JSON file</a> is renders.
+
 1. Markdown is off by default, you can turn it off by including "flMarkdown": "true" in your JSON file. 
 
 2. Markdown only applies to the subs. The title, description, byline, etc are not processed through Markdown.
