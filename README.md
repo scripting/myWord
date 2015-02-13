@@ -24,3 +24,5 @@ A bunch of small changes, loose-end fixes.
 
 3. Before using any of the values in the JSON, be sure it exists. 
 
+4. You can change the title font and the body font. See the <a href="http://myword.io/essay.json">example JSON file</a> for a clue.
+
