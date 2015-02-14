@@ -14,9 +14,15 @@ I'm going to keep iterating. :-)
 
 #### Blog post
 
-The Scripting News <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html">blog post</a> announcing myword.io.
+The Scripting News <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html">blog post</a> announcing myword.io,  a good place to post a comment.
 
 #### Updates
+
+##### v0.46 2/14/15 by DW -- Happy Valentine's Day!
+
+1. Added dropshadows to the byline and description.
+
+2. Added styles to make it look reasonable on a phone. 
 
 ##### v0.45 2/13/15 by DW
 
