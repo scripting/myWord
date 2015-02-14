@@ -32,7 +32,7 @@
 				productname: "myWord",
 				productnameForDisplay: "myword.io",
 				domain: "myword.io", 
-				version: "0.46"
+				version: "0.47"
 				}
 			var defaultImageUrl = "http://scripting.com/2015/02/12/beatles.png";
 			
@@ -48,7 +48,7 @@
 				ga('send', 'pageview');
 				}
 			function startup () {
-				var urlparam = getURLParameter ("url"), urlEssay = "essay.json", jstruct, imgurl = defaultImageUrl;;
+				var urlparam = decodeURIComponent (getURLParameter ("url")), urlEssay = "essay.json", jstruct, imgurl = defaultImageUrl;;
 				var markdown = new Markdown.Converter (), now = new Date (), flmarkdown;
 				console.log ("startup");
 				$("#idVersionNumber").html ("v" + appConsts.version);
@@ -122,8 +122,12 @@
 										}
 									}
 								else {
-									essaytext += "<div class=\"divSubhead\">" + sub.title + "</div>";
-									dolist (sub.subs);
+									if (sub.title != undefined) {
+										essaytext += "<div class=\"divSubhead\">" + sub.title + "</div>";
+										}
+									if (sub.subs != undefined) {
+										dolist (sub.subs);
+										}
 									}
 								}
 							}
