@@ -9,263 +9,26 @@
 		<script src="http://fargo.io/code/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="http://fargo.io/code/fontAwesome/css/font-awesome.min.css"/>
 		<link href="http://fargo.io/code/ubuntuFont.css" rel="stylesheet" type="text/css">
+		<link href="style.css" rel="stylesheet" type="text/css">
 		<script src="http://fargo.io/code/node/shared/utils.js"></script>
 		<script src="http://fargo.io/code/node/shared/alertdialog.js"></script>
 		<script src="http://fargo.io/code/markdownConverter.js"></script>
+		<script src="script.js"></script>
 		
 		<!-- Facebook metadata -->
-			<meta property="og:url" content="http://myword.io/" />
-			<meta property="og:type" content="website" />
-			<meta property="og:title" content="myword.io" />
-			<meta property="og:description" content="An easy open source way to create nice-looking web pages for essays." />
-			<meta property="og:image" content="http://scripting.com/2015/02/12/beatles.png" />
-			<meta property="og:site_name" content="myword.io" />
+		<meta property="og:url" content="http://myword.io/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="myword.io" />
+		<meta property="og:description" content="An easy open source way to create nice-looking web pages for essays." />
+		<meta property="og:image" content="http://scripting.com/2015/02/12/beatles.png" />
+		<meta property="og:site_name" content="myword.io" />
 		<!-- Twitter metadata -->
-			<meta name="twitter:card" content="summary_large_image">
-			<meta name="twitter:site" content="@davewiner">
-			<meta name="twitter:title" content="myword.io">
-			<meta name="twitter:description" content="An easy open source way to create nice-looking web pages for essays.">
-			<meta name="twitter:image:src" content="http://scripting.com/2015/02/12/beatles.png">
-		
-		<script>
-			var appConsts = {
-				productname: "myWord",
-				productnameForDisplay: "myword.io",
-				domain: "myword.io", 
-				version: "0.47"
-				}
-			var defaultImageUrl = "http://scripting.com/2015/02/12/beatles.png";
-			
-			function everySecond () {
-				}
-			function initGoogleAnalytics () {
-				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-				
-				ga('create', 'UA-39531990-1', appConsts.domain);
-				ga('send', 'pageview');
-				}
-			function startup () {
-				var urlparam = decodeURIComponent (getURLParameter ("url")), urlEssay = "essay.json", jstruct, imgurl = defaultImageUrl;;
-				var markdown = new Markdown.Converter (), now = new Date (), flmarkdown;
-				console.log ("startup");
-				$("#idVersionNumber").html ("<a href=\"https://github.com/scripting/myWord\" target=\"_blank\">v" + appConsts.version + "</a>");
-				initGoogleAnalytics (); 
-				if (urlparam != "null") {
-					urlEssay = urlparam;
-					}
-				readHttpFile (urlEssay, function (s) {
-					try {
-						jstruct = JSON.parse (s);
-						}
-					catch (err) {
-						alertDialog (err + ". Try using <a href=\"http://jsonlint.com/\" target=\"_blank\">jsonlint</a> to find the error in the JSON file.");
-						return;
-						}
-					
-					flmarkdown = getBoolean (jstruct.flMarkdown); //2/13/15 by DW
-					
-					//image
-						if (jstruct.img != undefined) {
-							imgurl = jstruct.img;
-							}
-						$("#idBackgroundImage").css ("background-image", "url(" + imgurl + ")");
-					//title
-						if (jstruct.title != undefined) {
-							$("#idPageTitle").html (jstruct.title);
-							document.title = appConsts.productnameForDisplay + ": " + jstruct.title;
-							}
-					//fonts
-						if (jstruct.titlefont != undefined) {
-							$("#idPageTopText").css ("font-family", jstruct.titlefont);
-							}
-						if (jstruct.bodyfont != undefined) {
-							$("#idEssayText").css ("font-family", jstruct.bodyfont);
-							}
-						
-					//byline
-						if (jstruct.authorname != undefined) {
-							var author = jstruct.authorname, byline;
-							if (jstruct.authorwebsite != undefined) {
-								author = "<a href=\"" + jstruct.authorwebsite + "\">" + author + "</a>";
-								}
-							byline = "By " + author;
-							if (jstruct.when != undefined) {
-								var whenstring;
-								if (sameDay (new Date (jstruct.when), now)) {
-									whenstring = " at ";
-									}
-								else {
-									whenstring = " on ";
-									}
-								byline += whenstring + viewDate (jstruct.when);
-								}
-							$("#idPageByline").html (byline + ".");
-							}
-					//description
-						if (jstruct.description != undefined) {
-							$("#idPageDescription").html (jstruct.description);
-							}
-					//essay text
-						var essaytext = "";
-						function dolist (thelist) {
-							for (var i = 0; i < thelist.length; i++) {
-								var sub = thelist [i];
-								if (typeof sub == "string") {
-									if (flmarkdown) {
-										essaytext += sub + "\n\n";
-										}
-									else {
-										essaytext += "<p>" +  sub + "</p>";
-										}
-									}
-								else {
-									if (sub.title != undefined) {
-										essaytext += "<div class=\"divSubhead\">" + sub.title + "</div>";
-										}
-									if (sub.subs != undefined) {
-										dolist (sub.subs);
-										}
-									}
-								}
-							}
-						dolist (jstruct.subs);
-						
-						if (flmarkdown) {
-							console.log ("startup: essay text before Markdown processing == " + essaytext);
-							essaytext = "<div class=\"divMarkdownText\">" + markdown.makeHtml (essaytext) + "</div>";
-							}
-						
-						$("#idEssayText").html (essaytext);
-					});
-				self.setInterval (function () {everySecond ()}, 1000); 
-				}
-			</script>
-		<style>
-			body {
-				font-family: Ubuntu;
-				font-size: 18px;
-				background-color: whitesmoke;
-				}
-			.divPageBody {
-				width: 60%;
-				margin-top: 90px;
-				margin-left: auto;
-				margin-right: auto;
-				}
-			.divBackgroundImage {
-				position: absolute;
-				width: 100%;
-				height: 400px;
-				margin-left: 0;
-				margin-top: 0;
-				border-top: 1px solid silver;
-				z-index: 10;
-				
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
-				}
-			.divPageTopText {
-				width: 70%; 
-				margin-left: auto;
-				margin-right: auto;
-				margin-top: 160px;
-				}
-			.divPageTopText a {
-				color: white;
-				}
-			.divPageTitle {
-				font-size: 50px;
-				letter-spacing: -0.02em;
-				font-weight: 700;
-				font-style: normal;
-				letter-spacing: -0.04em;
-				line-height: 1.1;
-				margin-bottom: 8px;
-				color: white;
-				text-shadow: 1px 1px black;
-				}
-			.divPageByline {
-				font-size: 18px;
-				color: white;
-				margin-bottom: .5em;
-				text-shadow: 1px 1px black;
-				}
-			.divPageDescription {
-				font-size: 24px;
-				color: white;
-				margin-top: .5em;
-				height: 3em;
-				text-shadow: 1px 1px black;
-				}
-			.divEssayText {
-				font-family: "Georgia";
-				font-size: 24px;
-				line-height: 145%;
-				width: 55%; 
-				margin-top: 125px;
-				margin-left: auto;;
-				margin-right: auto;
-				margin-bottom: 400px;
-				}
-			.divSubhead {
-				font-family: "Ubuntu";
-				font-weight: bold;
-				margin-top: 1em;
-				margin-bottom: .15em;
-				}
-			.divMarkdownText h4 {
-				font-size: 24px;
-				margin-top: 1.25em;
-				margin-bottom: .75em;
-				}
-			.divVersionNumber {
-				position: absolute;
-				top: 0;
-				right:0;
-				font-size: 13px;
-				padding: 5px;
-				color: white;
-				z-index: 20;
-				}
-			.divVersionNumber a {
-				color: white;
-				}
-			</style>
-		<style> /* styles for phone */
-			@media only screen 
-			and (min-device-width : 320px) 
-			and (max-device-width : 480px) {
-				.divPageTopText {
-					width: 80%; 
-					margin-top: 110px;
-					}
-				.divPageTitle {
-					font-size: 44px;
-					}
-				.divPageDescription {
-					font-size: 18px;
-					line-height: 110%;
-					}
-				.divEssayText {
-					width: 80%; 
-					margin-top: 125px;
-					margin-left: auto;;
-					margin-right: auto;
-					margin-bottom: 400px;
-					}
-				.divVersionNumber {
-					position: absolute;
-					padding: 2px;
-					}
-				}
-			</style>
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@davewiner">
+		<meta name="twitter:title" content="myword.io">
+		<meta name="twitter:description" content="An easy open source way to create nice-looking web pages for essays.">
+		<meta name="twitter:image:src" content="http://scripting.com/2015/02/12/beatles.png">
+
 		</head>
 	<body>
 		<div class="divVersionNumber" id="idVersionNumber">
@@ -285,10 +48,5 @@
 					</div>
 				</div>
 			</div>
-		<script>
-			$(document).ready (function () {
-				startup ();
-				});
-			</script>
 		</body>
 	</html>
