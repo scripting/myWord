@@ -51,7 +51,7 @@
 				var urlparam = decodeURIComponent (getURLParameter ("url")), urlEssay = "essay.json", jstruct, imgurl = defaultImageUrl;;
 				var markdown = new Markdown.Converter (), now = new Date (), flmarkdown;
 				console.log ("startup");
-				$("#idVersionNumber").html ("v" + appConsts.version);
+				$("#idVersionNumber").html ("<a href=\"https://github.com/scripting/myWord\" target=\"_blank\">v" + appConsts.version + "</a>");
 				initGoogleAnalytics (); 
 				if (urlparam != "null") {
 					urlEssay = urlparam;
@@ -233,6 +233,9 @@
 				padding: 5px;
 				color: white;
 				z-index: 20;
+				}
+			.divVersionNumber a {
+				color: white;
 				}
 			</style>
 		<style> /* styles for phone */
