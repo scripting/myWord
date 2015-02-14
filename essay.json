@@ -8,10 +8,10 @@
 	"titlefont": "Ubuntu",
 	"bodyfont": "Georgia",
 	"subs": [
-		"My name is Dave Winer. I wanted an easy way to nice-looking web pages for essays. That's how I arrived at myword.io.",
+		"My name is Dave Winer. I wanted an easy way to make nice-looking web pages for essays. That's how I arrived at myword.io.",
 		"It's a very simple JavaScript app embedded in a web page. It's so simple, there's almost nothing to it. I've shared the <a href=\"https://github.com/scripting/myWord\">source code</a> on GitHub, and licensed it as open source, so you can see for yourself.",
 		{
-			"title": "The app & website",
+			"title": "The app and website",
 			"subs": [
 				"The app reads a very simple <a href=\"http://en.wikipedia.org/wiki/JSON\">JSON</a> format. Here's an example <a href=\"https://dl.dropboxusercontent.com/u/36518280/misc/myWordDemo.json\">file</a>. Of course the text you're reading right now comes from a <a href=\"http://myword.io/essay.json\">JSON file</a>. It would be really easy to create a simple text editor that produces these files, hiding the complex technical details from users.",
 				"There's a standalone public web page version at <a href=\"http://myword.io/\">myword.io</a>. It takes an optional <i>url</i> parameter, which specifies the address of the JSON file to use. If none is specified, we read the file <i>essay.json</i> in the same directory as the HTML page. ",
@@ -22,7 +22,9 @@
 			"title": "Where to go from here",
 			"subs": [
 				"If you have suggestions, feel free to post them as a reply to <a href=\"http://scripting.com/2015/02/12/somethingFunIWhippedUp.html\">this blog post</a>.",
-				"That's about it for now. I hope you enjoy myWord. Feel free to use it, or the standalone public web page version."
+				"That's about it for now. I hope you enjoy myword.io. Feel free to use it, or the standalone public web page version. And if you agree, tell other people you think it's cool.",
+				"<a href=\"http://scripting.com/\">Dave</a>",
+				"PS: Phil Windley <a href=\"http://www.windley.com/archives/2015/02/myword.shtml\">loves</a> myword.io! :-)"
 				]
 			}
 		]

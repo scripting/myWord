@@ -18,7 +18,7 @@ I'm going to keep iterating. :-)
 
 Thanks to an excellent <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html#comment-1851937171">suggestion</a> by Paulo Querido, myword.io now supports Markdown. 
 
-Here's a myword.io <a href="http://myword.io/?url=http://myword.io/examples/markdown.json">demo page</a>, and the <a href="http://myword.io/examples/markdown.json">JSON file</a> is renders.
+Here's a <a href="http://myword.io/?url=http://myword.io/examples/markdown.json">demo page</a>, and the <a href="http://myword.io/examples/markdown.json">JSON source file</a> is renders.
 
 Here's how it works. 
 

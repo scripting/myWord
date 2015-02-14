@@ -32,7 +32,7 @@
 				productname: "myWord",
 				productnameForDisplay: "myword.io",
 				domain: "myword.io", 
-				version: "0.44"
+				version: "0.45"
 				}
 			var defaultImageUrl = "http://scripting.com/2015/02/12/beatles.png";
 			
@@ -51,6 +51,7 @@
 				var urlparam = getURLParameter ("url"), urlEssay = "essay.json", jstruct, imgurl = defaultImageUrl;;
 				var markdown = new Markdown.Converter (), now = new Date (), flmarkdown;
 				console.log ("startup");
+				$("#idVersionNumber").html ("v" + appConsts.version);
 				initGoogleAnalytics (); 
 				if (urlparam != "null") {
 					urlEssay = urlparam;
@@ -195,13 +196,14 @@
 				font-size: 24px;
 				color: white;
 				margin-top: .5em;
+				height: 3em;
 				}
 			.divEssayText {
 				font-family: "Georgia";
 				font-size: 24px;
-				line-height: 140%;
-				width: 60%; 
-				margin-top: 180px;
+				line-height: 145%;
+				width: 55%; 
+				margin-top: 125px;
 				margin-left: auto;;
 				margin-right: auto;
 				margin-bottom: 400px;
@@ -209,7 +211,7 @@
 			.divSubhead {
 				font-family: "Ubuntu";
 				font-weight: bold;
-				margin-top: .75em;
+				margin-top: 1em;
 				margin-bottom: .15em;
 				}
 			.divMarkdownText h4 {
@@ -217,9 +219,20 @@
 				margin-top: 1.25em;
 				margin-bottom: .75em;
 				}
+			.divVersionNumber {
+				position: absolute;
+				top: 0;
+				right:0;
+				font-size: 13px;
+				padding: 5px;
+				color: white;
+				z-index: 20;
+				}
 			</style>
 		</head>
 	<body>
+		<div class="divVersionNumber" id="idVersionNumber">
+			</div>
 		<div class="divTextContainer" id="idTextContainer">
 			<div class="divBackgroundImage" id="idBackgroundImage">
 				<div class="divOverlay" id="idOverlay"></div>
