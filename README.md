@@ -12,11 +12,15 @@ Now, I'm not a great CSS hacker. That's obvious. But all that's needed is a fram
 
 I'm going to keep iterating. :-)
 
+#### Blog post
+
+The Scripting News <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html">blog post</a> announcing myword.io.
+
 #### Updates
 
 ##### v0.45 2/13/15 by DW
 
-1. Made the description fixed height, so that the body text always begins at the same vertical position. 
+1. Made the description fixed height, so the body text always begins at the same vertical position. 
 
 2. Made the body text a little narrower and added to the line-height.
 
