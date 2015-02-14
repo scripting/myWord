@@ -14,6 +14,14 @@ I'm going to keep iterating. :-)
 
 #### Updates
 
+##### v0.45 2/13/15 by DW
+
+1. Made the description fixed height, so that the body text always begins at the same vertical position. 
+
+2. Made the body text a little narrower and added to the line-height.
+
+3. Show the version number in the upper-right corner of the page, in white.
+
 ##### v0.44 2/13/15 by DW
 
 Thanks to an excellent <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html#comment-1851937171">suggestion</a> by Paulo Querido, myword.io now supports Markdown. 
