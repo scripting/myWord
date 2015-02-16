@@ -18,6 +18,14 @@ The Scripting News <a href="http://scripting.com/2015/02/12/somethingFunIWhipped
 
 #### Updates
 
+##### v0.48 2/16/15 by DW
+
+1. The two main sections are both positioned <i>absolute,</i> so the text will always begin at the same vertical place no matter how much descriptive text there is.
+
+2. There's a transparent dark rectangle around the byline-title-description section, which makes the text jump out a bit more over the picture. 
+
+3. There's a footer section at the bottom, but I haven't done any CSS for it yet, and there's no way to set it via the JSON.
+
 ##### v0.46 2/14/15 by DW -- Happy Valentine's Day!
 
 1. Added dropshadows to the byline and description.
