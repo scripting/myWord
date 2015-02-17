@@ -32,7 +32,7 @@
 				productname: "myWord",
 				productnameForDisplay: "myword.io",
 				domain: "myword.io", 
-				version: "0.48"
+				version: "0.49"
 				}
 			var defaultImageUrl = "http://scripting.com/2015/02/12/beatles.png";
 			
@@ -186,6 +186,7 @@
 				color: white;
 				padding-top: 3px;
 				padding-left: 20px;
+				padding-left: 3px;
 				z-index: 20;
 				}
 			.divPageTopText a {
@@ -259,23 +260,34 @@
 			@media only screen 
 			and (min-device-width : 320px) 
 			and (max-device-width : 480px) {
+				.divBackgroundImage {
+					height: 300px;
+					}
 				.divPageTopText {
-					width: 80%; 
-					margin-top: 110px;
+					top: 50;
+					width: 80%;
+					left: 10%;
+					}
+				.divTextBackground {
+					top: 100;
+					width: 80%;
+					left: 10%;
 					}
 				.divPageTitle {
 					font-size: 44px;
 					}
 				.divPageDescription {
 					font-size: 18px;
-					line-height: 110%;
+					line-height: 120%;
+					}
+				.divPageBody {
+					top: 300;
+					width: 90%; 
+					left: 5%;
+					margin-top: 20px;
 					}
 				.divEssayText {
-					width: 80%; 
-					margin-top: 125px;
-					margin-left: auto;;
-					margin-right: auto;
-					margin-bottom: 400px;
+					font-size: 18px;
 					}
 				.divVersionNumber {
 					position: absolute;
