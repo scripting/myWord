@@ -12,7 +12,7 @@ Now, I'm not a great CSS hacker. That's obvious. But all that's needed is a fram
 
 I'm going to keep iterating. :-)
 
-#### Important: MyWord <i>Editor</i>
+#### MyWord <i>Editor</i>
 
 April 2015: There's a new project, <a href="https://github.com/scripting/myWordEditor">MyWord Editor</a>, that picks up where this one left off. It turns the MyWord renderer into a full blog editing system. 
 
