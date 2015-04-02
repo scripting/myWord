@@ -16,6 +16,10 @@ I'm going to keep iterating. :-)
 
 The Scripting News <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html">blog post</a> announcing myword.io,  a good place to post a comment.
 
+#### MyWord Editor
+
+There's a <a href="https://github.com/scripting/myWordEditor">new project</a> that picks up where this one left off, that turns the MyWord renderer into a full blog editing system. 
+
 #### Updates
 
 ##### v0.48 2/16/15 by DW
