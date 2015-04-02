@@ -12,13 +12,13 @@ Now, I'm not a great CSS hacker. That's obvious. But all that's needed is a fram
 
 I'm going to keep iterating. :-)
 
+#### Important: MyWord <i>Editor</i>
+
+April 2015: There's a new project, <a href="https://github.com/scripting/myWordEditor">MyWord Editor</a>, that picks up where this one left off. It turns the MyWord renderer into a full blog editing system. 
+
 #### Blog post
 
 The Scripting News <a href="http://scripting.com/2015/02/12/somethingFunIWhippedUp.html">blog post</a> announcing myword.io,  a good place to post a comment.
-
-#### MyWord Editor
-
-There's a <a href="https://github.com/scripting/myWordEditor">new project</a> that picks up where this one left off, that turns the MyWord renderer into a full blog editing system. 
 
 #### Updates
 
